@@ -11,6 +11,7 @@ git clone https://github.com/weevilgenius/ts-boilerplate-browser.git my-new-proj
 cd my-new-project
 rm -rf .git
 git init
+git branch -M main
 pnpm install
 # edit files as needed
 git add .
