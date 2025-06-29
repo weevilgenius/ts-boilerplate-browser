@@ -29,6 +29,26 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         output: {
+
+          // configure Rollup to break some libraries out into separate files
+          // manualChunks: (id: string) => {
+          //   if (id.includes('node_modules')) {
+          //     if (/node_modules[/\\]mithril/.test(id)) {
+          //       return 'mithril';
+          //     }
+          //     if (/node_modules[/\\]@shoelace-style[/\\]/.test(id)) {
+          //       return 'shoelace';
+          //     }
+          //     if (/node_modules[/\\](lit|@lit|lit-html|lit-element)[/\\]/.test(id)) {
+          //       return 'shoelace';
+          //     }
+          //     if (/node_modules[/\\]@floating-ui[/\\]/.test(id)) {
+          //       return 'shoelace';
+          //     }
+          //   }
+          //   // default: let Rollup decide
+          // },
+
           // Optional, remove hashes from output filenames
           // entryFileNames: `assets/[name].js`,
           // chunkFileNames: `assets/[name].js`,
