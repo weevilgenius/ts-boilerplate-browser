@@ -36,8 +36,8 @@ importers:
         specifier: ^8.46.2
         version: 8.46.2(eslint@9.39.0)(typescript@5.9.3)
       vite:
-        specifier: ^7.1.12
-        version: 7.1.12
+        specifier: ^7.2.2
+        version: 7.2.2
 
 packages:
 
@@ -923,8 +923,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  vite@7.1.12:
-    resolution: {integrity: sha512-ZWyE8YXEXqJrrSLvYgrRP7p62OziLW7xI5HYGWFzOvupfAlrLvURSzv/FyGyy0eidogEM3ujU+kUG1zuHgb6Ug==}
+  vite@7.2.2:
+    resolution: {integrity: sha512-BxAKBWmIbrDgrokdGZH1IgkIk/5mMHDreLDmCJ0qpyJaAteP8NvMhkwr/ZCQNqNH97bw/dANTE9PDzqwJghfMQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -1790,7 +1790,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite@7.1.12:
+  vite@7.2.2:
     dependencies:
       esbuild: 0.25.11
       fdir: 6.5.0(picomatch@4.0.3)
