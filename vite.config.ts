@@ -1,12 +1,13 @@
 import { defineConfig, type PluginOption, type UserConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { env } from 'node:process';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
 
   const plugins: PluginOption[] = [];
 
-  if (mode === 'analyze') {
+  if (env.ANALYZE === '1') {
     // add the visualizer to see the module break-down
     plugins.push(
       visualizer({
@@ -36,14 +37,14 @@ export default defineConfig(({ mode }) => {
           //     if (/node_modules[/\\]mithril/.test(id)) {
           //       return 'mithril';
           //     }
-          //     if (/node_modules[/\\]@shoelace-style[/\\]/.test(id)) {
-          //       return 'shoelace';
+          //     if (/node_modules[/\\]@awesome.me[/\\]webawesome[/\\]/.test(id)) {
+          //       return 'webawesome';
           //     }
           //     if (/node_modules[/\\](lit|@lit|lit-html|lit-element)[/\\]/.test(id)) {
-          //       return 'shoelace';
+          //       return 'webawesome';
           //     }
           //     if (/node_modules[/\\]@floating-ui[/\\]/.test(id)) {
-          //       return 'shoelace';
+          //       return 'webawesome';
           //     }
           //   }
           //   // default: let Rollup decide
