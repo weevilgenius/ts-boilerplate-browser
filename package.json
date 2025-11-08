@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src",
+    "lint": "eslint src tests",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "analyze": "tsc && ANALYZE=1 vite build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "check": "pnpm typecheck && pnpm lint"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "check": "pnpm typecheck && pnpm lint && pnpm test"
   },
   "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "private": true,
@@ -20,12 +22,15 @@
     "@stylistic/eslint-plugin": "^5.5.0",
     "@tsconfig/recommended": "^1.0.11",
     "@types/node": "22.18.12",
+    "@vitest/coverage-v8": "^4.0.8",
     "eslint": "^9.39.1",
     "eslint-plugin-unused-imports": "^4.3.0",
     "globals": "^16.5.0",
+    "happy-dom": "^20.0.10",
     "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
-    "vite": "^7.2.2"
+    "vite": "^7.2.2",
+    "vitest": "^4.0.8"
   }
 }

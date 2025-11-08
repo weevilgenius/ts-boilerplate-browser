@@ -4,14 +4,22 @@
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": [
+      "vitest/globals" // vitest globals for test files
+    ],
     "useDefineForClassFields": true,
     "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
+    },
 
     /* Vite-specific Best Practices */
     "moduleResolution": "bundler",
     "isolatedModules": true,
   },
   "include": [
-    "src"
+    "src",
+    "tests"
   ]
 }
