@@ -19,6 +19,16 @@ export default defineConfig(() => {
     );
   }
 
+  // strip HTML comments from index.html
+  plugins.push(
+    {
+      name: 'strip-html-comments',
+      transformIndexHtml(html) {
+        return html.replace(/<!--[\s\S]*?-->\n?/g, '');
+      },
+    }
+  );
+
   const config: UserConfig = {
     plugins,
     build: {
