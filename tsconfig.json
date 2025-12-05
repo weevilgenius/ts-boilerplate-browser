@@ -10,7 +10,6 @@
     "useDefineForClassFields": true,
     "noEmit": true,
     "baseUrl": ".",
-    "skipLibCheck": true,
     "paths": {
       "src/*": ["src/*"]
     },

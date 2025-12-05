@@ -4,7 +4,7 @@
   "description": "Boilerplate for a Typescript project targeting the browser",
   "main": "index.js",
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "lint": "eslint src tests",
     "dev": "vite",
     "build": "tsc && vite build",
