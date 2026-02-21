@@ -8,8 +8,6 @@ import globals from "globals";
 // this configures ESLint using their new flat config system
 // https://eslint.org/docs/latest/use/configure/configuration-files
 
-// the .config() helper function simply returns each of the objects unmodified
-// but adds typing, making it easier to edit in VSCode
 export default defineConfig(
 
   // config that contains only ignores is replacement for .eslintignore
@@ -60,7 +58,7 @@ export default defineConfig(
     ],
 
     // apply to all typescript and javascript files, except the ignores above
-    files: ["**/*.{js,mjs,cjs,ts}"],
+    files: ["**/*.{js,mjs,cjs,ts,cts,mts}"],
 
     linterOptions: {
       noInlineConfig: false,
@@ -174,7 +172,7 @@ export default defineConfig(
   // overrides for node scripts
   {
     files: [
-      'eslint.config.mjs',
+      'eslint.config.js',
       'vite.config.ts',
     ],
 
@@ -187,7 +185,7 @@ export default defineConfig(
       parserOptions: {
         projectService: {
           defaultProject: 'tsconfig.node.json',
-          allowDefaultProject: ['*.mjs', '*.config.ts'],
+          allowDefaultProject: ['*.config.js', '*.config.ts'],
         },
       },
     },
