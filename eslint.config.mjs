@@ -1,4 +1,5 @@
 import eslint from "@eslint/js";
+import { defineConfig } from 'eslint/config';
 import tseslint from "typescript-eslint";
 import stylistic from '@stylistic/eslint-plugin';
 import unusedImports from "eslint-plugin-unused-imports";
@@ -9,7 +10,7 @@ import globals from "globals";
 
 // the .config() helper function simply returns each of the objects unmodified
 // but adds typing, making it easier to edit in VSCode
-export default tseslint.config(
+export default defineConfig(
 
   // config that contains only ignores is replacement for .eslintignore
   {
