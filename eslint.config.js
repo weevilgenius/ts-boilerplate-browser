@@ -134,6 +134,9 @@ export default defineConfig(
         fixStyle: "inline-type-imports",
       }],
 
+      // flag import { type A, type B } when all imports are types
+      "@typescript-eslint/no-import-type-side-effects": "warn",
+
       // ==================================================
       // Style/formatting rules
       // ==================================================
