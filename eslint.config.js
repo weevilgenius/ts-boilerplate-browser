@@ -128,6 +128,12 @@ export default defineConfig(
       // complain about using a computed key with a constant
       "no-useless-computed-key": "warn",
 
+      // warn about importing a type without annotating it as a type only import
+      "@typescript-eslint/consistent-type-imports": ["warn", {
+        prefer: "type-imports",
+        fixStyle: "inline-type-imports",
+      }],
+
       // ==================================================
       // Style/formatting rules
       // ==================================================
