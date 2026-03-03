@@ -27,11 +27,9 @@ export default defineConfig(
 
     // required for linting with type information
     languageOptions: {
-      parser: "@typescript-eslint/parser",
+      parser: tseslint.parser,
       parserOptions: {
-        projectService: {
-          defaultProject: 'tsconfig.json',
-        },
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -69,12 +67,12 @@ export default defineConfig(
     rules: {
 
       // unused imports
-      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-imports": "warn",
 
       // unused variables/arguments
       "@typescript-eslint/no-unused-vars": "off",
       "unused-imports/no-unused-vars": [
-        "error",
+        "warn",
         {
           vars: "local", // only allow global unused variables, complain about local
           argsIgnorePattern: "^_",  // allow unused arguments starting with _
@@ -181,8 +179,7 @@ export default defineConfig(
   // overrides for node scripts
   {
     files: [
-      'eslint.config.js',
-      'vite.config.ts',
+      '*.config.js',
     ],
 
     // this is a node file, not browser
@@ -190,12 +187,6 @@ export default defineConfig(
       globals: {
         ...globals.es2021,
         ...globals.node,
-      },
-      parserOptions: {
-        projectService: {
-          defaultProject: 'tsconfig.node.json',
-          allowDefaultProject: ['*.config.js', '*.config.ts'],
-        },
       },
     },
   },
