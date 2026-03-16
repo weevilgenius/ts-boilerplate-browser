@@ -41,6 +41,7 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
       rolldownOptions: {
         output: {
+
           // uncomment if you need to break libraries out into separate files for caching
           // codeSplitting: {
           //   groups: [
@@ -49,11 +50,20 @@ export default defineConfig(({ command }) => {
           //         if (!id.includes('node_modules')) {
           //           return null;
           //         }
-          //         if (/node_modules[/\\]mithril(?:[/\\]|$)/.test(id)) {
+          //         if (/node_modules[/\\]mithril/.test(id)) {
           //           return 'mithril';
           //         }
-          //         if (/node_modules[/\\](?:@awesome\.me[/\\]webawesome|@lit[/\\]|lit(?:-html|-element)?(?:[/\\]|$)|@floating-ui[/\\])/.test(id)) {
+          //         if (/node_modules[/\\]@awesome\.me[/\\]webawesome[/\\]/.test(id)) {
           //           return 'webawesome';
+          //         }
+          //         if (/node_modules[/\\](lit|@lit|lit-html|lit-element)[/\\]/.test(id)) {
+          //           return 'webawesome';
+          //         }
+          //         if (/node_modules[/\\]@floating-ui[/\\]/.test(id)) {
+          //           return 'webawesome';
+          //         }
+          //         if (/node_modules[/\\]firebase[/\\]/.test(id)) {
+          //           return 'firebase';
           //         }
           //         return null;
           //       },
@@ -61,6 +71,7 @@ export default defineConfig(({ command }) => {
           //     },
           //   ],
           // },
+
         },
       },
     },
