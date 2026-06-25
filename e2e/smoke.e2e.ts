@@ -11,7 +11,16 @@ import { test, expect } from '@playwright/test';
  * and view the resulting PNG rather than pixel-diff assertions.
  */
 
-test('home page renders its heading', async ({ page }) => {
+test('home page reveals the joke answer on click', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+
+  // The question is shown up front; the answer is hidden until revealed.
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Why did the chicken cross the road?',
+  );
+  await expect(page.getByText('To get to the other side!')).toBeHidden();
+
+  await page.getByRole('button', { name: 'Reveal the answer' }).click();
+
+  await expect(page.getByText('To get to the other side!')).toBeVisible();
 });

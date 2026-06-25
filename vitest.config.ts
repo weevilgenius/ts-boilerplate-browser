@@ -7,8 +7,8 @@ export default defineConfig({
     environment: 'happy-dom',
     // Keep the Playwright e2e tests out of the Vitest run.
     exclude: [...configDefaults.exclude, 'e2e/**'],
-    // Run global setup (cleanup, ResizeObserver stub, custom matchers)
-    setupFiles: ['./tests/setup/matchers.ts'],
+    // Run global setup (ResizeObserver + ElementInternals stubs)
+    setupFiles: ['./tests/helpers/matchers.ts'],
     // Enable globals (describe, it, expect) without explicit imports
     globals: true,
     // Use V8 coverage for accurate instrumentation

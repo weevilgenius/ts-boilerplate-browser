@@ -42,35 +42,32 @@ export default defineConfig(({ command }) => {
       rolldownOptions: {
         output: {
 
-          // uncomment if you need to break libraries out into separate files for caching
-          // codeSplitting: {
-          //   groups: [
-          //     {
-          //       name: (id: string): string | null => {
-          //         if (!id.includes('node_modules')) {
-          //           return null;
-          //         }
-          //         if (/node_modules[/\\]mithril/.test(id)) {
-          //           return 'mithril';
-          //         }
-          //         if (/node_modules[/\\]@awesome\.me[/\\]webawesome[/\\]/.test(id)) {
-          //           return 'webawesome';
-          //         }
-          //         if (/node_modules[/\\](lit|@lit|lit-html|lit-element)[/\\]/.test(id)) {
-          //           return 'webawesome';
-          //         }
-          //         if (/node_modules[/\\]@floating-ui[/\\]/.test(id)) {
-          //           return 'webawesome';
-          //         }
-          //         if (/node_modules[/\\]firebase[/\\]/.test(id)) {
-          //           return 'firebase';
-          //         }
-          //         return null;
-          //       },
-          //       test: /node_modules[/\\]/,
-          //     },
-          //   ],
-          // },
+          // break some libraries out into separate files for better caching
+          codeSplitting: {
+            groups: [
+              {
+                name: (id: string): string | null => {
+                  if (!id.includes('node_modules')) {
+                    return null;
+                  }
+                  if (/node_modules[/\\]mithril/.test(id)) {
+                    return 'mithril';
+                  }
+                  if (/node_modules[/\\]@awesome\.me[/\\]webawesome[/\\]/.test(id)) {
+                    return 'webawesome';
+                  }
+                  if (/node_modules[/\\](lit|@lit|lit-html|lit-element)[/\\]/.test(id)) {
+                    return 'webawesome';
+                  }
+                  if (/node_modules[/\\]@floating-ui[/\\]/.test(id)) {
+                    return 'webawesome';
+                  }
+                  return null;
+                },
+                test: /node_modules[/\\]/,
+              },
+            ],
+          },
 
         },
       },
