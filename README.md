@@ -13,12 +13,8 @@ or do this:
 ```
 # Replace <branch> with 'main' or 'mithril'
 git clone --single-branch -b <branch> https://github.com/weevilgenius/ts-boilerplate-browser.git my-new-project
+
+# initialize the project
 cd my-new-project
-rm -rf .git
-git init
-git branch -M main
-pnpm install
-# edit files as needed
-git add .
-git commit -m "initial commit"
+./bootstrap.sh
 ```

@@ -81,7 +81,7 @@ no committed baseline images. For visual checks, use `pnpm screenshot` above.
   \* ========================================================= */
   ```
 
-  ### Function Declarations
+### Function Declarations
 
 - **Arrow functions** for internal/helper functions and factory functions. Lint rules
   require parens for all arrow functions.
