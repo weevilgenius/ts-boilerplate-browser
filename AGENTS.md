@@ -18,20 +18,25 @@ changes:
 - Check all three: `pnpm run check`
 - Build project: `pnpm run build`
 
-## Visual Validation (Screenshots)
+## Visual Validation (Screenshots / Prints)
 
 To inspect the rendered UI (light/dark mode, mobile layout, general layout),
-capture a screenshot and view the resulting PNG. Uses Playwright (Chromium).
-If a dev server is already running it is reused; otherwise a temporary one is
-started for the capture and stopped afterwards.
+capture a screenshot and view the resulting PNG. To inspect print layout,
+capture a print-formatted PDF or PNG. Uses Playwright (Chromium). If a dev
+server is already running it is reused; otherwise a temporary one is started
+for the capture and stopped afterwards.
 
 - Capture a screenshot: `pnpm screenshot [options]`
   - `--path <p>` route to capture (default `/`)
-  - `--out <file>` output path (default `screenshots/screenshot.png`)
+  - `--out <file>` output path (default `screenshots/screenshot.png`, or
+    `screenshots/screenshot.pdf` with `--print` unless `--png` is set)
   - `--theme <light|dark>` color scheme (default `light`)
   - `--device <name>` Playwright device, e.g. `"iPhone 15"`, `"Pixel 7"`
   - `--width <n>` / `--height <n>` viewport size (ignored with `--device`)
   - `--full-page` capture the full scrollable page
+  - `--print` output a US Letter print-formatted PDF instead of a PNG
+  - `--png` output a PNG when used with `--print`
+  - `--pages <range>` PDF page ranges, e.g. `"1-5, 8"` (requires `--print`)
   - `--wait <selector>` wait for a CSS selector before capturing
   - `--delay <ms>` extra settle delay before capturing
   - `--url <base>` target an explicit base URL (disables auto-start)
@@ -40,10 +45,12 @@ started for the capture and stopped afterwards.
   ```sh
   pnpm screenshot --theme dark --out screenshots/dark.png
   pnpm screenshot --device "iPhone 15" --out screenshots/mobile.png
+  pnpm screenshot --print --pages "1-2,4" --out screenshots/print.pdf
+  pnpm screenshot --print --png --out screenshots/print.png
   ```
 
-  Output goes to `screenshots/` (gitignored). After capturing, read the PNG
-  to inspect the layout.
+  Output goes to `screenshots/` (gitignored). After capturing, read the PNG or
+  PDF to inspect the layout.
 
 ### End-to-end tests
 
