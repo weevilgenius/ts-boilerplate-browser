@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@awesome.me/webawesome':
-        specifier: ^3.9.0
-        version: 3.9.0(@floating-ui/utils@0.2.11)(@types/node@26.1.0)(@types/react@19.2.17)
+        specifier: ^3.10.0
+        version: 3.10.0(@floating-ui/utils@0.2.11)(@types/node@26.1.0)(@types/react@19.2.17)
       mithril:
         specifier: ^2.3.8
         version: 2.3.8
@@ -72,8 +72,8 @@ importers:
 
 packages:
 
-  '@awesome.me/webawesome@3.9.0':
-    resolution: {integrity: sha512-doKgUCglb/E1d/dYSzXQQthlYmyndFOtG/Vr5HyHjIFqNwn/tbutMsIMYJrYFEjq07vPwcOHKeAulbiqoslRoQ==}
+  '@awesome.me/webawesome@3.10.0':
+    resolution: {integrity: sha512-QrVKGTiz9OhtIoDic7RF6o1x5ShnJI7jgxK93uoSBh3INYlUyejKYXohXqpJ2cgjIJqfo0jMSQygd1Ty96QOMA==}
     engines: {node: '>=14.17.0'}
 
   '@babel/helper-string-parser@7.29.7':
@@ -585,8 +585,8 @@ packages:
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
 
-  enhanced-resolve@5.24.0:
-    resolution: {integrity: sha512-SkE2t82KlkkxQRVMVLAGKxLfORGQfrkx5dkj+vlgXRVNEdPc4eZcR+J/Fvj8C+yKSFH5L0q3NFlyufOVQnCcYQ==}
+  enhanced-resolve@5.24.1:
+    resolution: {integrity: sha512-7DdUaTjmNwMcH2gLr1qycesKII3BK4RLy/mdAb7x10Lq7bR4aNKHt1BR1ZALSv0rPM/hF5wYF0PhGop/rJm8vw==}
     engines: {node: '>=10.13.0'}
 
   entities@6.0.1:
@@ -948,8 +948,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.1.15:
-    resolution: {integrity: sha512-kBg3RpGtIe+RpTbyXwoI6pk5yD7KUiI3sygUqgeBMRst42KmhB4RZC7eiO9Wa1HIpaCCtpE2DJ6OI4Wi5ebwFw==}
+  nanoid@5.1.16:
+    resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -1290,7 +1290,7 @@ packages:
 
 snapshots:
 
-  '@awesome.me/webawesome@3.9.0(@floating-ui/utils@0.2.11)(@types/node@26.1.0)(@types/react@19.2.17)':
+  '@awesome.me/webawesome@3.10.0(@floating-ui/utils@0.2.11)(@types/node@26.1.0)(@types/react@19.2.17)':
     dependencies:
       '@ctrl/tinycolor': 4.1.0
       '@floating-ui/dom': 1.7.6
@@ -1304,7 +1304,7 @@ snapshots:
       composed-offset-position: 0.0.6(@floating-ui/utils@0.2.11)
       lit: 3.3.3
       marked: 11.2.0
-      nanoid: 5.1.15
+      nanoid: 5.1.16
     transitivePeerDependencies:
       - '@floating-ui/utils'
       - '@types/node'
@@ -1429,7 +1429,7 @@ snapshots:
       '@lit-labs/ssr-dom-shim': 1.6.0
       '@lit/reactive-element': 2.1.2
       '@parse5/tools': 0.3.0
-      enhanced-resolve: 5.24.0
+      enhanced-resolve: 5.24.1
       lit: 3.3.3
       lit-element: 4.2.2
       lit-html: 3.3.3
@@ -1800,7 +1800,7 @@ snapshots:
 
   emoji-regex@10.6.0: {}
 
-  enhanced-resolve@5.24.0:
+  enhanced-resolve@5.24.1:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.3
@@ -2124,7 +2124,7 @@ snapshots:
 
   nanoid@3.3.15: {}
 
-  nanoid@5.1.15: {}
+  nanoid@5.1.16: {}
 
   natural-compare@1.4.0: {}
 
