@@ -47,7 +47,7 @@
     "vitest": "^4.1.10"
   },
   "dependencies": {
-    "@awesome.me/webawesome": "^3.10.0",
+    "@awesome.me/webawesome": "^3.11.0",
     "mithril": "^2.3.8"
   }
 }
