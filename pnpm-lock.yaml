@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@awesome.me/webawesome':
-        specifier: ^3.11.0
-        version: 3.11.0(@floating-ui/utils@0.2.12)(@types/node@26.3.0)(@types/react@19.2.18)
+        specifier: ^3.12.0
+        version: 3.12.0(@floating-ui/utils@0.2.12)(@types/node@26.3.0)(@types/react@19.2.18)
       mithril:
         specifier: ^2.3.8
         version: 2.3.8
@@ -64,7 +64,7 @@ importers:
         specifier: npm:@typescript/typescript6@^6.0.2
         version: '@typescript/typescript6@6.0.2'
       typescript-eslint:
-        specifier: ^8.67.0
+        specifier: ^8.68.0
         version: 8.68.0(@typescript/typescript6@6.0.2)(eslint@10.9.1(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)
       vite:
         specifier: ^8.2.2
@@ -75,8 +75,8 @@ importers:
 
 packages:
 
-  '@awesome.me/webawesome@3.11.0':
-    resolution: {integrity: sha512-WM8kyP+AdAT3/zwNpc/YzN3Nu5pRD6ksREFZAct/DIn6KMnQs8lPVfiPbJrOpKMk8OaSnQX19iiwFGjoswXVXw==}
+  '@awesome.me/webawesome@3.12.0':
+    resolution: {integrity: sha512-cO/vSvlyZqiki1upynxpk9q2N48U2+nflIj40OtCKYOs6ZXa4zXhW6+asXKOfeNw1AnD4nzsSIdZSt/Ti9QONA==}
     engines: {node: '>=14.17.0'}
 
   '@babel/helper-string-parser@7.29.7':
@@ -1410,7 +1410,7 @@ packages:
 
 snapshots:
 
-  '@awesome.me/webawesome@3.11.0(@floating-ui/utils@0.2.12)(@types/node@26.3.0)(@types/react@19.2.18)':
+  '@awesome.me/webawesome@3.12.0(@floating-ui/utils@0.2.12)(@types/node@26.3.0)(@types/react@19.2.18)':
     dependencies:
       '@ctrl/tinycolor': 4.1.0
       '@floating-ui/dom': 1.8.0

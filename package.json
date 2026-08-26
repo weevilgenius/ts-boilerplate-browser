@@ -42,12 +42,12 @@
     "lit": "^3.3.3",
     "rollup-plugin-visualizer": "^7.1.1",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "typescript-eslint": "^8.67.0",
+    "typescript-eslint": "^8.68.0",
     "vite": "^8.2.2",
     "vitest": "^4.1.11"
   },
   "dependencies": {
-    "@awesome.me/webawesome": "^3.11.0",
+    "@awesome.me/webawesome": "^3.12.0",
     "mithril": "^2.3.8"
   }
 }
