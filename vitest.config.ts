@@ -19,7 +19,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // Allow imports like 'src/types' in test files
-      src: path.resolve(__dirname, './src'),
+      src: path.resolve(import.meta.dirname, './src'),
     },
   },
 });
