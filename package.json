@@ -33,7 +33,7 @@
     "@types/node": "^26.4.1",
     "@typescript/native": "npm:typescript@^7.0.2",
     "@vitest/coverage-v8": "^5.0.0",
-    "eslint": "^10.9.1",
+    "eslint": "^10.10.0",
     "eslint-plugin-unused-imports": "^4.4.1",
     "globals": "^17.12.0",
     "happy-dom": "^20.13.2",
