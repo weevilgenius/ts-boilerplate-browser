@@ -19,7 +19,7 @@
     "screenshot": "node scripts/screenshot.ts",
     "check": "pnpm run typecheck && pnpm run lint && pnpm run test"
   },
-  "packageManager": "pnpm@12.3.4",
+  "packageManager": "pnpm@12.4.2",
   "private": true,
   "type": "module",
   "engines": {
@@ -31,20 +31,20 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tsconfig/recommended": "^1.0.13",
     "@types/mithril": "^2.2.9",
-    "@types/node": "^26.5.0",
+    "@types/node": "^26.5.1",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "@vitest/coverage-v8": "^5.0.0",
+    "@vitest/coverage-v8": "^5.0.1",
     "eslint": "^10.10.0",
     "eslint-plugin-unused-imports": "^4.4.1",
     "globals": "^17.12.0",
-    "happy-dom": "^20.14.0",
+    "happy-dom": "^20.14.5",
     "jiti": "^2.7.0",
     "lit": "^3.3.3",
     "rollup-plugin-visualizer": "^7.1.1",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-eslint": "^8.70.0",
-    "vite": "^8.2.2",
-    "vitest": "^5.0.0"
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
   },
   "dependencies": {
     "@awesome.me/webawesome": "^3.12.0",
