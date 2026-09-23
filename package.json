@@ -19,11 +19,11 @@
     "screenshot": "node scripts/screenshot.ts",
     "check": "pnpm run typecheck && pnpm run lint && pnpm run test"
   },
-  "packageManager": "pnpm@12.5.1",
+  "packageManager": "pnpm@12.6.0",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=24.0.0"
+    "node": "26"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -42,7 +42,7 @@
     "lit": "^3.3.3",
     "rollup-plugin-visualizer": "^7.1.1",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "typescript-eslint": "^8.70.0",
+    "typescript-eslint": "^8.70.1",
     "vite": "^8.3.0",
     "vitest": "^5.0.1"
   },
