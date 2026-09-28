@@ -19,11 +19,11 @@
     "screenshot": "node scripts/screenshot.ts",
     "check": "pnpm run typecheck && pnpm run lint && pnpm run test"
   },
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.8.1",
   "private": true,
   "type": "module",
   "engines": {
-    "node": "26"
+    "node": ">=26"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
