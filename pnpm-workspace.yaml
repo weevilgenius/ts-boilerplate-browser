@@ -2,3 +2,6 @@ allowBuilds:
   esbuild: true
 autoDedupe: true
 saveTypes: true
+peerDependencyRules:
+  allowedVersions:
+    "@lit-labs/ssr>@types/node": ">=20"
