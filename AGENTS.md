@@ -22,9 +22,9 @@ changes:
 
 To inspect the rendered UI (light/dark mode, mobile layout, general layout),
 capture a screenshot and view the resulting PNG. To inspect print layout,
-capture a print-formatted PDF or PNG. Uses Playwright (Chromium). If a dev
-server is already running it is reused; otherwise a temporary one is started
-for the capture and stopped afterwards.
+capture a print-formatted PDF or PNG. Uses Playwright (Chromium). Each
+capture starts a private temporary Vite server on an automatically allocated
+port and stops it afterwards. Use `--url` to explicitly target an existing server.
 
 - Capture a screenshot: `pnpm screenshot [options]`
   - `--path <p>` route to capture (default `/`)
@@ -61,6 +61,15 @@ no committed baseline images. For visual checks, use `pnpm screenshot` above.
 
 - Run e2e tests: `pnpm test:e2e`
 - Interactive UI mode: `pnpm test:e2e:ui`
+
+### Port ownership
+
+Multiple unrelated Vite or Playwright servers may be running concurrently,
+including servers for other projects or checkouts. Use the listening URL reported
+by the command; never assume a default port belongs to this instance. Screenshots
+and E2E tests start private servers. Only stop servers started by your own task;
+never kill a process just to free a port. For parallel runs in the same checkout,
+use distinct screenshot `--out` paths and Playwright `--output` directories.
 
 ## Coding Conventions
 
