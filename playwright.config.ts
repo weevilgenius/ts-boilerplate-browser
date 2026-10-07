@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
  * Playwright configuration for end-to-end / visual tests.
  *
  * Tests live in `e2e/` (kept separate from the Vitest unit tests in `tests/`).
- * The dev server is started automatically and reused if already running.
+ * Each run owns a private dev server on an automatically allocated port.
  *
  * https://playwright.dev/docs/test-configuration
  */
@@ -16,7 +16,6 @@ export default defineConfig({
   reporter: 'list',
 
   use: {
-    baseURL: 'http://localhost:5173',
     // Capture a trace on first retry to aid debugging failures.
     trace: 'on-first-retry',
   },
@@ -32,11 +31,12 @@ export default defineConfig({
     },
   ],
 
-  // Start the Vite dev server for tests, reusing one if already running.
+  // Capture Vite's actual URL into Playwright's default baseURL fixture.
   webServer: {
-    command: 'pnpm dev',
-    url: 'http://localhost:5173',
-    reuseExistingServer: true,
+    command: 'pnpm dev --port 0 --host 127.0.0.1',
+    wait: { stdout: /Local:\s+(?<playwright_test_base_url>http:\/\/127\.0\.0\.1:\d+\/)/ },
+    stdout: 'pipe',
+    gracefulShutdown: { signal: 'SIGTERM', timeout: 5_000 },
     timeout: 60_000,
   },
 });

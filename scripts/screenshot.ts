@@ -4,9 +4,9 @@
  *  Captures a screenshot, print PDF, or print PNG of the    *
  *  app for visual validation.                               *
  *                                                           *
- *  If a dev server is already running at the target URL it  *
- *  is reused; otherwise a throwaway Vite dev server is      *
- *  started for the capture and stopped afterwards.          *
+ *  Starts a private temporary Vite server for each capture  *
+ *  and stops it afterwards. --url uses an explicit server   *
+ *  without starting or stopping it.                         *
  *                                                           *
  *  Usage:                                                   *
  *    pnpm screenshot [options]                              *
@@ -36,12 +36,6 @@ import process from 'node:process';
 import { chromium, devices } from '@playwright/test';
 import { createServer } from 'vite';
 
-/** Default base URL probed for an already-running dev server. */
-const DEFAULT_BASE_URL = 'http://localhost:5173';
-
-/** Milliseconds to wait when probing for an existing dev server. */
-const PROBE_TIMEOUT_MS = 600;
-
 /** US Letter at 96 CSS pixels per inch. */
 const PRINT_PNG_VIEWPORT = { width: 816, height: 1056 };
 
@@ -62,19 +56,6 @@ const { values } = parseArgs({
     delay: { type: 'string' },
   },
 });
-
-/**
- * Returns true if an HTTP server responds at the given base URL within the
- * probe timeout. Any HTTP response (even an error status) counts as "running".
- */
-const isServerRunning = async (baseUrl: string): Promise<boolean> => {
-  try {
-    await fetch(baseUrl, { signal: AbortSignal.timeout(PROBE_TIMEOUT_MS) });
-    return true;
-  } catch {
-    return false;
-  }
-};
 
 const theme = values.theme === 'dark' ? 'dark' : 'light';
 const fullPage = values['full-page'];
@@ -105,27 +86,24 @@ if (deviceName && !deviceDescriptor) {
   process.exit(1);
 }
 
-// Decide whether to reuse an existing server or start our own.
-const explicitUrl = values.url;
-const baseUrl = explicitUrl ?? DEFAULT_BASE_URL;
-const reuseExisting = explicitUrl !== undefined || (await isServerRunning(baseUrl));
-
 let server: Awaited<ReturnType<typeof createServer>> | undefined;
-let targetBaseUrl = baseUrl;
+let browser: Awaited<ReturnType<typeof chromium.launch>> | undefined;
 
-if (!reuseExisting) {
-  console.log('No dev server detected; starting a temporary Vite server...');
-  server = await createServer({ server: { port: 5173 } });
-  await server.listen();
-  targetBaseUrl = server.resolvedUrls?.local[0] ?? baseUrl;
-} else {
-  console.log(`Using existing server at ${baseUrl}`);
-}
-
-const targetUrl = new URL(values.path, targetBaseUrl).toString();
-
-const browser = await chromium.launch();
 try {
+  let targetBaseUrl = values.url;
+  if (targetBaseUrl === undefined) {
+    server = await createServer({ server: { port: 0, host: '127.0.0.1' } });
+    await server.listen();
+    targetBaseUrl = server.resolvedUrls?.local[0];
+    if (targetBaseUrl === undefined) {
+      throw new Error('Vite did not report a listening URL.');
+    }
+    console.log(`Temporary Vite server listening at ${targetBaseUrl}`);
+  } else {
+    console.log(`Using explicit server at ${targetBaseUrl}`);
+  }
+  const targetUrl = new URL(values.path, targetBaseUrl).toString();
+  browser = await chromium.launch();
   const context = await browser.newContext({
     colorScheme: theme,
     ...(printPng ? {} : deviceDescriptor),
@@ -165,8 +143,9 @@ try {
 
   console.log(`Captured ${targetUrl} (${theme}${deviceName ? `, ${deviceName}` : ''}${print ? ', print' : ''}${printPng ? ' PNG' : ''}) -> ${outPath}`);
 } finally {
-  await browser.close();
-  if (server) {
-    await server.close();
+  try {
+    await browser?.close();
+  } finally {
+    await server?.close();
   }
 }
