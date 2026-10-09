@@ -5,3 +5,5 @@ saveTypes: true
 peerDependencyRules:
   allowedVersions:
     "@lit-labs/ssr>@types/node": ">=20"
+lockfile:
+  includeResolutionSettings: true
