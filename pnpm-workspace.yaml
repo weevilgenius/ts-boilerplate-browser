@@ -4,3 +4,5 @@ autoDedupe: true
 saveTypes: true
 lockfile:
   includeResolutionSettings: true
+minimumReleaseAgeExclude:
+  - playwright-core@1.65.0
