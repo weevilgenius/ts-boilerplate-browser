@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { chromiumPath } from './scripts/chromium.ts';
 
 /**
  * Playwright configuration for end-to-end / visual tests.
@@ -16,6 +17,7 @@ export default defineConfig({
   reporter: 'list',
 
   use: {
+    launchOptions: { executablePath: chromiumPath() },
     // Capture a trace on first retry to aid debugging failures.
     trace: 'on-first-retry',
   },

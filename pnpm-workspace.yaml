@@ -7,3 +7,5 @@ peerDependencyRules:
     "@lit-labs/ssr>@types/node": ">=20"
 lockfile:
   includeResolutionSettings: true
+minimumReleaseAgeExclude:
+  - playwright-core@1.65.0

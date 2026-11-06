@@ -35,6 +35,7 @@ import { dirname, resolve } from 'node:path';
 import process from 'node:process';
 import { chromium, devices } from '@playwright/test';
 import { createServer } from 'vite';
+import { chromiumPath } from './chromium.ts';
 
 /** US Letter at 96 CSS pixels per inch. */
 const PRINT_PNG_VIEWPORT = { width: 816, height: 1056 };
@@ -103,7 +104,7 @@ try {
     console.log(`Using explicit server at ${targetBaseUrl}`);
   }
   const targetUrl = new URL(values.path, targetBaseUrl).toString();
-  browser = await chromium.launch();
+  browser = await chromium.launch({ executablePath: chromiumPath() });
   const context = await browser.newContext({
     colorScheme: theme,
     ...(printPng ? {} : deviceDescriptor),
