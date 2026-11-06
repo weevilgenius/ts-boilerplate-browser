@@ -26,6 +26,10 @@ capture a print-formatted PDF or PNG. Uses Playwright (Chromium). Each
 capture starts a private temporary Vite server on an automatically allocated
 port and stops it afterwards. Use `--url` to explicitly target an existing server.
 
+Chromium is not downloaded by `pnpm install`. The screenshot script and the e2e
+tests install Playwright's Chromium on first use, or use the one preinstalled at
+`/opt/pw-browsers/chromium` in cloud containers (`scripts/chromium.ts`).
+
 - Capture a screenshot: `pnpm screenshot [options]`
   - `--path <p>` route to capture (default `/`)
   - `--out <file>` output path (default `screenshots/screenshot.png`, or

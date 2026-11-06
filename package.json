@@ -4,7 +4,6 @@
   "description": "Boilerplate for a Typescript project targeting the browser",
   "main": "index.js",
   "scripts": {
-    "postinstall": "playwright install chromium",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "lint": "eslint .",
     "dev": "vite",
