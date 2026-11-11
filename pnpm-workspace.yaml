@@ -1,3 +1,5 @@
+overrides:
+  minimatch: ">=11.0.1"
 allowBuilds:
   esbuild: true
 autoDedupe: true
@@ -7,5 +9,3 @@ peerDependencyRules:
     "@lit-labs/ssr>@types/node": ">=20"
 lockfile:
   includeResolutionSettings: true
-minimumReleaseAgeExclude:
-  - playwright-core@1.65.0
