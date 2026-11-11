@@ -1,8 +1,8 @@
+overrides:
+  minimatch: ">=11.0.1"
 allowBuilds:
   esbuild: true
 autoDedupe: true
 saveTypes: true
 lockfile:
   includeResolutionSettings: true
-minimumReleaseAgeExclude:
-  - playwright-core@1.65.0
