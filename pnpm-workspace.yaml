@@ -6,3 +6,6 @@ autoDedupe: true
 saveTypes: true
 lockfile:
   includeResolutionSettings: true
+skills:
+  dirs:
+    - .agents/skills
